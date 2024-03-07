@@ -1,9 +1,21 @@
-import styled from "styled-components";
 import Rock from "../../icons/Rock";
 import Paper from "../../icons/Paper";
 import Scissors from "../../icons/Scissors";
 import { useCalculateResult } from "../../hooks/useCalculateResult";
 import { Dispatch, SetStateAction } from "react";
+import {
+  Challenge,
+  CompsIcon,
+  Computer,
+  GameContainer,
+  MyIcon,
+  PaperWrapper,
+  ResultText,
+  RockWrapper,
+  ScissorsWrapper,
+  You,
+  YouAndComputer,
+} from "./styles";
 
 type GameProps = {
   icon: JSX.Element | null;
@@ -28,14 +40,19 @@ const Game: React.FC<GameProps> = ({
   setMyScore,
   setCompScore,
 }) => {
-  const somth = useCalculateResult;
+  const calculateWrapper = useCalculateResult;
   const randomizer = Math.floor(Math.random() * 3);
 
   const onRockClick = () => {
     setIcon(<Rock />);
     setCompIcon(computerIcons[randomizer]);
     setResult(
-      somth({ myChoice: 0, compChoice: randomizer, setMyScore, setCompScore })
+      calculateWrapper({
+        myChoice: 0,
+        compChoice: randomizer,
+        setMyScore,
+        setCompScore,
+      })
     );
   };
 
@@ -43,7 +60,12 @@ const Game: React.FC<GameProps> = ({
     setIcon(<Paper />);
     setCompIcon(computerIcons[randomizer]);
     setResult(
-      somth({ myChoice: 1, compChoice: randomizer, setMyScore, setCompScore })
+      calculateWrapper({
+        myChoice: 1,
+        compChoice: randomizer,
+        setMyScore,
+        setCompScore,
+      })
     );
   };
 
@@ -51,11 +73,17 @@ const Game: React.FC<GameProps> = ({
     setIcon(<Scissors />);
     setCompIcon(computerIcons[randomizer]);
     setResult(
-      somth({ myChoice: 2, compChoice: randomizer, setMyScore, setCompScore })
+      calculateWrapper({
+        myChoice: 2,
+        compChoice: randomizer,
+        setMyScore,
+        setCompScore,
+      })
     );
   };
   return (
     <GameContainer>
+      <ResultText result={result}>{result}</ResultText>
       <YouAndComputer>
         <You>
           <h3>You</h3>
@@ -76,72 +104,11 @@ const Game: React.FC<GameProps> = ({
         </Computer>
       </YouAndComputer>
       <Challenge>
-        {icon}
-        {compIcon}
+        <MyIcon>{icon}</MyIcon>
+        <CompsIcon>{compIcon}</CompsIcon>
       </Challenge>
-      {result}
     </GameContainer>
   );
 };
 
 export default Game;
-
-const GameContainer = styled.div`
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-`;
-
-const YouAndComputer = styled.div`
-  display: flex;
-  justify-content: space-around;
-`;
-
-const You = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-
-  h3 {
-    font-size: 1.8rem;
-  }
-`;
-
-const RockWrapper = styled.div`
-  width: 50px;
-  cursor: pointer;
-`;
-const PaperWrapper = styled.div`
-  width: 50px;
-  cursor: pointer;
-`;
-const ScissorsWrapper = styled.div`
-  width: 50px;
-  cursor: pointer;
-`;
-
-const Computer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 85px;
-
-  h3 {
-    font-size: 1.8rem;
-  }
-
-  span {
-    font-size: 1.8rem;
-    padding: 20px 25px;
-    background-color: goldenrod;
-    border-radius: 50%;
-  }
-`;
-
-const Challenge = styled.div`
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-`;
