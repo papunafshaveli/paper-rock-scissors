@@ -4,6 +4,7 @@ import { device } from "../deviceSizes/deviceSizes";
 export const AppContainer = styled.div`
   padding: 20px 30px;
   max-width: 500px;
+  min-height: 100vh;
 
   @media ${device.tablet} {
     padding: 50px;

@@ -17,7 +17,6 @@ import {
   You,
   YouAndComputer,
 } from "./styles";
-import styled from "styled-components";
 
 type GameProps = {
   icon: JSX.Element | null;
@@ -29,7 +28,6 @@ type GameProps = {
   setMyScore: Dispatch<SetStateAction<number>>;
   setCompScore: Dispatch<SetStateAction<number>>;
   vibrationIsEnable: boolean;
-  setVibrationIsEnable: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const computerIcons = [<Rock />, <Paper />, <Scissors />];
@@ -44,7 +42,6 @@ const Game: React.FC<GameProps> = ({
   setMyScore,
   setCompScore,
   vibrationIsEnable,
-  setVibrationIsEnable,
 }) => {
   const calculateWrapper = useCalculateResult;
   const randomizer = Math.floor(Math.random() * 3);
@@ -101,10 +98,6 @@ const Game: React.FC<GameProps> = ({
     }
   };
 
-  const handleSilence = () => {
-    setVibrationIsEnable(!vibrationIsEnable);
-  };
-
   return (
     <GameContainer>
       <YouAndComputer>
@@ -134,15 +127,8 @@ const Game: React.FC<GameProps> = ({
           <Scissors />
         </ScissorsWrapper>
       </Choices>
-      <StyledFooter>
-        <button onClick={handleSilence}>silence</button>
-      </StyledFooter>
     </GameContainer>
   );
 };
 
 export default Game;
-
-const StyledFooter = styled.footer`
-  width: 100%;
-`;

@@ -2,6 +2,7 @@ import Game from "./Game/Game";
 import { useState } from "react";
 import { AppContainer, Header, LoseScore, Results, WinScore } from "./styles";
 import FinalResultsModal from "./FinalResultsModal/FinalResultsModal";
+import Footer from "./Footer/Footer";
 
 function App() {
   const [icon, setIcon] = useState<JSX.Element | null>(null);
@@ -24,6 +25,7 @@ function App() {
           </p>
         </Results>
       </Header>
+
       {myScore < 10 && compScore < 10 ? (
         <Game
           icon={icon}
@@ -35,7 +37,6 @@ function App() {
           setMyScore={setMyScore}
           setCompScore={setCompScore}
           vibrationIsEnable={vibrationIsEnable}
-          setVibrationIsEnable={setVibrationIsEnable}
         />
       ) : (
         <FinalResultsModal
@@ -44,6 +45,10 @@ function App() {
           setCompScore={setCompScore}
         />
       )}
+      <Footer
+        vibrationIsEnable={vibrationIsEnable}
+        setVibrationIsEnable={setVibrationIsEnable}
+      />
     </AppContainer>
   );
 }
