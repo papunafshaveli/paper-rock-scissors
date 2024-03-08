@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { Modal, ModalContainer } from "./styles";
+import { createPortal } from "react-dom";
 
 type FinalResultsModalProps = {
   myScore: number;
@@ -18,11 +19,14 @@ const FinalResultsModal: React.FC<FinalResultsModalProps> = ({
   };
   return (
     <ModalContainer>
-      <Modal>
-        <h1>{myScore === 10 ? "Congrats! You Win!" : "You Lost"} </h1>
+      {createPortal(
+        <Modal>
+          <h1>{myScore === 10 ? "Congrats! You Win!" : "You Lost"} </h1>
 
-        <button onClick={handleStartAgain}>Let's Start Again!</button>
-      </Modal>
+          <button onClick={handleStartAgain}>Let's Start Again!</button>
+        </Modal>,
+        document.body
+      )}
     </ModalContainer>
   );
 };
