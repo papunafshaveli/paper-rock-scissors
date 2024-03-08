@@ -118,7 +118,7 @@ export const RockWrapper = styled.div`
 
   border-radius: 50%;
 
-  &:hover {
+  &:active {
     background-color: #073b07;
     transform: scale(1.2);
   }
@@ -138,7 +138,7 @@ export const PaperWrapper = styled.div`
 
   cursor: pointer;
 
-  &:hover {
+  &:active {
     background-color: #b7ae04;
     transform: scale(1.2);
   }
@@ -158,7 +158,7 @@ export const ScissorsWrapper = styled.div`
 
   cursor: pointer;
 
-  &:hover {
+  &:active {
     background-color: #a33c00;
     transform: scale(1.2);
   }
