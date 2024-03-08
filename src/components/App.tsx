@@ -1,6 +1,7 @@
 import Game from "./Game/Game";
 import { useState } from "react";
 import { AppContainer, Header, LoseScore, Results, WinScore } from "./styles";
+import FinalResultsModal from "./FinalResultsModal/FinalResultsModal";
 
 function App() {
   const [icon, setIcon] = useState<JSX.Element | null>(null);
@@ -22,17 +23,24 @@ function App() {
           </p>
         </Results>
       </Header>
-
-      <Game
-        icon={icon}
-        setIcon={setIcon}
-        compIcon={compIcon}
-        setCompIcon={setCompIcon}
-        result={result}
-        setResult={setResult}
-        setMyScore={setMyScore}
-        setCompScore={setCompScore}
-      />
+      {myScore < 10 && compScore < 10 ? (
+        <Game
+          icon={icon}
+          setIcon={setIcon}
+          compIcon={compIcon}
+          setCompIcon={setCompIcon}
+          result={result}
+          setResult={setResult}
+          setMyScore={setMyScore}
+          setCompScore={setCompScore}
+        />
+      ) : (
+        <FinalResultsModal
+          myScore={myScore}
+          setMyScore={setMyScore}
+          setCompScore={setCompScore}
+        />
+      )}
     </AppContainer>
   );
 }
