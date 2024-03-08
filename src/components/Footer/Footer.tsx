@@ -5,7 +5,7 @@ import {
   FaSquareInstagram,
 } from "react-icons/fa6";
 import { LuVibrate, LuVibrateOff } from "react-icons/lu";
-import styled from "styled-components";
+import { Social, StyledFooter, Vibration } from "./styles";
 
 const Footer = ({
   vibrationIsEnable,
@@ -20,6 +20,13 @@ const Footer = ({
 
   return (
     <StyledFooter>
+      <Vibration onClick={handleSilence}>
+        {vibrationIsEnable ? (
+          <LuVibrateOff size={30} />
+        ) : (
+          <LuVibrate size={30} />
+        )}
+      </Vibration>
       <Social>
         <b>
           Papuna <br /> Fshaveli
@@ -30,37 +37,8 @@ const Footer = ({
         <FaGithubSquare size={25} style={{ cursor: "pointer" }} />
         <FaYoutube size={25} style={{ cursor: "pointer" }} />
       </Social>
-      <Vibration>
-        {vibrationIsEnable ? (
-          <LuVibrateOff onClick={handleSilence} size={30} />
-        ) : (
-          <LuVibrate onClick={handleSilence} size={30} />
-        )}
-      </Vibration>
     </StyledFooter>
   );
 };
 
 export default Footer;
-
-const StyledFooter = styled.footer`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 50px;
-`;
-
-const Social = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const Vibration = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-
-  cursor: pointer;
-`;
