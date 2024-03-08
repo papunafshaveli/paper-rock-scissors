@@ -18,6 +18,32 @@ const Footer = ({
     setVibrationIsEnable(!vibrationIsEnable);
   };
 
+  const visitLinkedin = () => {
+    const linkedinURL =
+      "https://www.linkedin.com/in/papuna-machurishvili-722165a2";
+    window.open(linkedinURL, "_blank");
+  };
+
+  const visitGithub = () => {
+    const githubURL = "https://github.com/papunafshaveli/";
+    window.open(githubURL, "_blank");
+  };
+
+  const visitFb = () => {
+    const fbURL = "https://www.facebook.com/papunafshaveli1/";
+    window.open(fbURL, "_blank");
+  };
+
+  const visitYT = () => {
+    const YtURL = "https://www.youtube.com/@papunafshaveli/";
+    window.open(YtURL, "_blank");
+  };
+
+  const visitInsta = () => {
+    const instaURL = "https://www.instagram.com/papunart/?hl=en";
+    window.open(instaURL, "_blank");
+  };
+
   return (
     <StyledFooter>
       <Vibration onClick={handleSilence}>
@@ -31,11 +57,27 @@ const Footer = ({
         <b>
           Papuna <br /> Fshaveli
         </b>
-        <FaSquareFacebook size={25} style={{ cursor: "pointer" }} />
-        <FaLinkedin size={25} style={{ cursor: "pointer" }} />
-        <FaSquareInstagram size={25} style={{ cursor: "pointer" }} />
-        <FaGithubSquare size={25} style={{ cursor: "pointer" }} />
-        <FaYoutube size={25} style={{ cursor: "pointer" }} />
+        <FaSquareFacebook
+          size={25}
+          style={{ cursor: "pointer" }}
+          onClick={visitFb}
+        />
+        <FaLinkedin
+          size={25}
+          style={{ cursor: "pointer" }}
+          onClick={visitLinkedin}
+        />
+        <FaSquareInstagram
+          size={25}
+          style={{ cursor: "pointer" }}
+          onClick={visitInsta}
+        />
+        <FaGithubSquare
+          size={25}
+          style={{ cursor: "pointer" }}
+          onClick={visitGithub}
+        />
+        <FaYoutube size={25} style={{ cursor: "pointer" }} onClick={visitYT} />
       </Social>
     </StyledFooter>
   );
