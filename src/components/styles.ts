@@ -26,6 +26,12 @@ export const Header = styled.header`
     color: black;
   }
 
+  span {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: saddlebrown;
+  }
+
   @media ${device.tablet} {
     gap: 40px;
 

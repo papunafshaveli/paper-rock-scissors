@@ -15,7 +15,12 @@ function App() {
   return (
     <AppContainer>
       <Header>
-        <h1>Rock Paper Scissors</h1>
+        <h1>
+          Rock Paper Scissors{" "}
+          <span>
+            <br /> Be the first <br /> to score <br /> 10 points
+          </span>
+        </h1>
         <Results>
           <p>
             <WinScore>{myScore}</WinScore> Wins

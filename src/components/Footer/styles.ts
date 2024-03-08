@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../deviceSizes/deviceSizes";
 
 export const StyledFooter = styled.footer`
   width: 100%;
@@ -12,6 +13,10 @@ export const Social = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media ${device.tablet} {
+    margin-top: 30px;
+  }
 `;
 
 export const Vibration = styled.div`
@@ -32,5 +37,9 @@ export const Vibration = styled.div`
 
   &:hover {
     background-color: chocolate;
+  }
+
+  @media ${device.tablet} {
+    display: none;
   }
 `;
