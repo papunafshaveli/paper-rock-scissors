@@ -16,6 +16,8 @@ export const GameContainer = styled.div`
 export const Challenge = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   margin-top: 10px;
 
   width: 100%;

@@ -19,7 +19,7 @@ const FinalResultsModal: React.FC<FinalResultsModalProps> = ({
   return (
     <ModalContainer>
       <Modal>
-        <h1>{myScore === 10 ? "You Win" : "You Lost"} </h1>
+        <h1>{myScore === 10 ? "Congrats! You Win!" : "You Lost"} </h1>
 
         <button onClick={handleStartAgain}>Let's Start Again!</button>
       </Modal>
@@ -45,7 +45,7 @@ const ModalContainer = styled.div`
 `;
 
 const Modal = styled.div`
-  background-color: white;
+  background-color: #f1f184;
   border-radius: 5px;
   padding: 2rem;
   width: 30em;
@@ -53,4 +53,20 @@ const Modal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  button {
+    padding: 2px 4px;
+    font-size: 1.6rem;
+    background-color: darkgoldenrod;
+
+    &:hover {
+      background-color: chocolate;
+      color: white;
+    }
+  }
 `;

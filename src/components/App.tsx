@@ -9,6 +9,7 @@ function App() {
   const [result, setResult] = useState("");
   const [myScore, setMyScore] = useState(0);
   const [compScore, setCompScore] = useState(0);
+  const [vibrationIsEnable, setVibrationIsEnable] = useState(true);
 
   return (
     <AppContainer>
@@ -33,6 +34,8 @@ function App() {
           setResult={setResult}
           setMyScore={setMyScore}
           setCompScore={setCompScore}
+          vibrationIsEnable={vibrationIsEnable}
+          setVibrationIsEnable={setVibrationIsEnable}
         />
       ) : (
         <FinalResultsModal
