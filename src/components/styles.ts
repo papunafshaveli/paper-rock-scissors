@@ -22,7 +22,7 @@ export const Header = styled.header`
 
   h1 {
     font-size: 1.8rem;
-    color: white;
+    color: black;
   }
 
   @media ${device.tablet} {
@@ -41,7 +41,7 @@ export const Results = styled.div`
 
   p {
     font-size: 2.4rem;
-    color: white;
+    color: black;
   }
 
   @media ${device.tablet} {
@@ -52,7 +52,7 @@ export const Results = styled.div`
 `;
 
 export const WinScore = styled.b`
-  color: #05aa05;
+  color: #73ec00;
 `;
 
 export const LoseScore = styled.b`

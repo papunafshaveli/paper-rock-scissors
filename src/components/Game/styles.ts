@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { device } from "../../deviceSizes/deviceSizes";
 
 export const GameContainer = styled.div`
-  position: relative;
   margin-top: 20px;
 
   display: flex;
@@ -14,11 +13,47 @@ export const GameContainer = styled.div`
   }
 `;
 
+export const Challenge = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+  width: 100%;
+  height: 90px;
+
+  background-color: burlywood;
+  padding: 10px;
+
+  border: 1px solid black;
+  border-radius: 5px;
+
+  p {
+    text-align: center;
+
+    font-size: 1.8rem;
+    color: wheat;
+  }
+
+  @media ${device.tablet} {
+    height: 110px;
+  }
+`;
+
+export const MyIcon = styled.div`
+  width: 80px;
+  @media ${device.tablet} {
+    width: 90px;
+  }
+`;
+
+export const CompsIcon = styled.div`
+  width: 80px;
+  @media ${device.tablet} {
+    width: 90px;
+  }
+`;
+
 export const ResultText = styled.h2<{ result: string }>`
-  position: absolute;
-  top: -10px;
-  left: 45%;
-  transform: translate(-50%, -50%);
   font-size: 3.2rem;
 
   color: ${(props) =>
@@ -39,12 +74,6 @@ export const YouAndComputer = styled.div`
 `;
 
 export const You = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 20px;
-
   h3 {
     font-size: 2.4rem;
     color: #5fea09;
@@ -58,11 +87,6 @@ export const You = styled.div`
 `;
 
 export const Computer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 85px;
-
   h3 {
     font-size: 2.4rem;
     color: #843939;
@@ -73,13 +97,12 @@ export const Computer = styled.div`
       font-size: 3.2rem;
     }
   }
+`;
 
-  span {
-    font-size: 1.8rem;
-    padding: 20px 25px;
-    background-color: goldenrod;
-    border-radius: 50%;
-  }
+export const Choices = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
 `;
 
 export const RockWrapper = styled.div`
@@ -138,25 +161,5 @@ export const ScissorsWrapper = styled.div`
   @media ${device.tablet} {
     width: 100px;
     padding: 10px;
-  }
-`;
-
-export const Challenge = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-`;
-
-export const MyIcon = styled.div`
-  width: 80px;
-  @media ${device.tablet} {
-    width: 90px;
-  }
-`;
-
-export const CompsIcon = styled.div`
-  width: 80px;
-  @media ${device.tablet} {
-    width: 90px;
   }
 `;

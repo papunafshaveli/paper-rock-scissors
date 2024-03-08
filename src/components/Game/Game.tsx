@@ -5,6 +5,7 @@ import { useCalculateResult } from "../../hooks/useCalculateResult";
 import { Dispatch, SetStateAction } from "react";
 import {
   Challenge,
+  Choices,
   CompsIcon,
   Computer,
   GameContainer,
@@ -97,30 +98,33 @@ const Game: React.FC<GameProps> = ({
 
   return (
     <GameContainer>
-      <ResultText result={result}>{result}</ResultText>
       <YouAndComputer>
         <You>
           <h3>You</h3>
-          <RockWrapper onClick={onRockClick}>
-            <Rock />
-          </RockWrapper>
-          <PaperWrapper onClick={onPaperClick}>
-            <Paper />
-          </PaperWrapper>
-          <ScissorsWrapper onClick={onScissorsClick}>
-            <Scissors />
-          </ScissorsWrapper>
         </You>
 
         <Computer>
           <h3>computer</h3>
-          <span>?</span>
         </Computer>
       </YouAndComputer>
       <Challenge>
         <MyIcon>{icon}</MyIcon>
+        {!result && <p>choose Rock, Paper or Scissors</p>}
+        <ResultText result={result}>{result}</ResultText>
         <CompsIcon>{compIcon}</CompsIcon>
       </Challenge>
+
+      <Choices>
+        <RockWrapper onClick={onRockClick}>
+          <Rock />
+        </RockWrapper>
+        <PaperWrapper onClick={onPaperClick}>
+          <Paper />
+        </PaperWrapper>
+        <ScissorsWrapper onClick={onScissorsClick}>
+          <Scissors />
+        </ScissorsWrapper>
+      </Choices>
     </GameContainer>
   );
 };
