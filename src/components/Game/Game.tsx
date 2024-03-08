@@ -109,7 +109,7 @@ const Game: React.FC<GameProps> = ({
           <h3>computer</h3>
         </Computer>
       </YouAndComputer>
-      <Challenge>
+      <Challenge result={result}>
         <MyIcon>{icon}</MyIcon>
         {!result && <p>choose Rock, Paper or Scissors</p>}
         <ResultText result={result}>{result}</ResultText>

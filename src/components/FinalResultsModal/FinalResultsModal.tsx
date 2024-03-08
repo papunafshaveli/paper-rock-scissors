@@ -6,16 +6,19 @@ type FinalResultsModalProps = {
   myScore: number;
   setMyScore: Dispatch<SetStateAction<number>>;
   setCompScore: Dispatch<SetStateAction<number>>;
+  setResult: (val: string) => void;
 };
 
 const FinalResultsModal: React.FC<FinalResultsModalProps> = ({
   myScore,
   setMyScore,
   setCompScore,
+  setResult,
 }) => {
   const handleStartAgain = () => {
     setMyScore(0);
     setCompScore(0);
+    setResult("");
   };
   return (
     <ModalContainer>

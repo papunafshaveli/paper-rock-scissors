@@ -48,6 +48,7 @@ function App() {
           myScore={myScore}
           setMyScore={setMyScore}
           setCompScore={setCompScore}
+          setResult={setResult}
         />
       )}
       <Footer

@@ -13,7 +13,7 @@ export const GameContainer = styled.div`
   }
 `;
 
-export const Challenge = styled.div`
+export const Challenge = styled.div<{ result: string }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +23,12 @@ export const Challenge = styled.div`
   width: 100%;
   height: 90px;
 
-  background-color: burlywood;
+  background-color: ${(props) =>
+    props.result === "Win"
+      ? "#7FE122"
+      : props.result === "Lost"
+      ? "#851E00"
+      : "burlywood"};
   padding: 10px;
 
   border: 1px solid black;
@@ -59,9 +64,9 @@ export const ResultText = styled.h2<{ result: string }>`
   font-size: 3.2rem;
 
   color: ${(props) =>
-    props.result === "win"
-      ? "#7FE122"
-      : props.result === "win"
+    props.result === "Win"
+      ? "#115700"
+      : props.result === "Lost"
       ? "red"
       : "yellow"};
 
