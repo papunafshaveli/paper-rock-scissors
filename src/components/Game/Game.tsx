@@ -44,6 +44,7 @@ const Game: React.FC<GameProps> = ({
   const randomizer = Math.floor(Math.random() * 3);
 
   const onRockClick = () => {
+    handleVibrate();
     setIcon(<Rock />);
     setCompIcon(computerIcons[randomizer]);
     setResult(
@@ -57,6 +58,7 @@ const Game: React.FC<GameProps> = ({
   };
 
   const onPaperClick = () => {
+    handleVibrate();
     setIcon(<Paper />);
     setCompIcon(computerIcons[randomizer]);
     setResult(
@@ -70,6 +72,7 @@ const Game: React.FC<GameProps> = ({
   };
 
   const onScissorsClick = () => {
+    handleVibrate();
     setIcon(<Scissors />);
     setCompIcon(computerIcons[randomizer]);
     setResult(
@@ -81,6 +84,17 @@ const Game: React.FC<GameProps> = ({
       })
     );
   };
+
+  const isVibrationSupported = () => {
+    return "vibrate" in navigator;
+  };
+
+  const handleVibrate = () => {
+    if (isVibrationSupported()) {
+      navigator.vibrate(100);
+    }
+  };
+
   return (
     <GameContainer>
       <ResultText result={result}>{result}</ResultText>
