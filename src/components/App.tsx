@@ -46,6 +46,7 @@ function App() {
       ) : (
         <FinalResultsModal
           myScore={myScore}
+          compScore={compScore}
           setMyScore={setMyScore}
           setCompScore={setCompScore}
           setResult={setResult}

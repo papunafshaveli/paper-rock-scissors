@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 
 type FinalResultsModalProps = {
   myScore: number;
+  compScore: number;
   setMyScore: Dispatch<SetStateAction<number>>;
   setCompScore: Dispatch<SetStateAction<number>>;
   setResult: (val: string) => void;
@@ -11,6 +12,7 @@ type FinalResultsModalProps = {
 
 const FinalResultsModal: React.FC<FinalResultsModalProps> = ({
   myScore,
+  compScore,
   setMyScore,
   setCompScore,
   setResult,
@@ -23,7 +25,7 @@ const FinalResultsModal: React.FC<FinalResultsModalProps> = ({
   return (
     <ModalContainer>
       {createPortal(
-        <Modal>
+        <Modal myScore={myScore} compScore={compScore}>
           <h1>{myScore === 10 ? "Congrats! You Win!" : "You Lost"} </h1>
 
           <button onClick={handleStartAgain}>Let's Start Again!</button>

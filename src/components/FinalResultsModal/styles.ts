@@ -15,8 +15,13 @@ export const ModalContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
-export const Modal = styled.div`
-  background-color: #f1f184;
+export const Modal = styled.div<{ myScore: number; compScore: number }>`
+  background-color: ${(props) =>
+    props.myScore === 10
+      ? "#7FE122"
+      : props.compScore === 10
+      ? "#851E00"
+      : "burlywood"};
   border-radius: 5px;
   padding: 2rem;
   width: 30em;
